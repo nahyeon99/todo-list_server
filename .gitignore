@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Bootstrap ###
+!**/src/main/resources/static/js
+!**/src/main/resources/static/css
