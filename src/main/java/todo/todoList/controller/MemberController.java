@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import todo.todoList.domain.Member;
 import todo.todoList.domain.ToDo;
@@ -28,8 +30,10 @@ public class MemberController {
     /**
      * 회원 생성 기능
      */
+
     @PostMapping("/members")
     public CreateMemberResponse createMember(@RequestBody @Valid CreateMemberRequest request) {
+
         Member member = new Member();
         member.setName(request.getName());
         member.setAge(request.getAge());
