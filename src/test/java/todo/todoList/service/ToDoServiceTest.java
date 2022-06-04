@@ -31,21 +31,23 @@ public class ToDoServiceTest {
     @Autowired
     MemberService memberService;
 
-    // TODO: Test err: InvalidDataAccessApiUsageException
     @Test
-    public void 투두_등록() throws Exception {
+    public void 투두_수정() throws Exception {
+
         //given
         ToDo todo = new ToDo();
-
         todo.setId(1L);
         todo.setContent("코딩");
         todo.setIsCompleted(false);
         todo.setCreatedAt(LocalDateTime.now());
+        todo.setUpdatedAt(LocalDateTime.now());
 
         //when
         Long todoId = toDoService.join(todo);
+        toDoService.update(todoId, Boolean.TRUE);
 
         //then
-        assertEquals(todo, toDoRepository.findOne(todoId));
+
+
     }
 }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,7 @@ import javax.validation.constraints.NotEmpty;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -25,7 +27,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private MemberService memberService;
+    private final MemberService memberService;
 
     /**
      * 회원 생성 기능
@@ -72,7 +74,7 @@ public class MemberController {
     /**
      * 회원 단건 조회
      */
-    @GetMapping("/membners/{id}")
+    @GetMapping("/members/{id}")
     public MemberToDo findMemberOne(@PathVariable("id") Long id) {
         Member member = memberService.findOne(id);
         return new MemberToDo(member);

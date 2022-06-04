@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 
 // @Controller + @ResponseBody // Rest API 스타일
 // @ResponseBody 데이터 자체를 json 이나 xml로 보내자
+// @ResponseBody http 요청 body를 자바 객체로 전달받을 수 있다.
 @RestController
 @RequiredArgsConstructor
 public class ToDoController {
